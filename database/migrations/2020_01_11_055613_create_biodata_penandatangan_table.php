@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateBiodataPenandatanganTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('biodata_penandatangan', function (Blueprint $table) {
+            $table->bigIncrements('id_biodata_penandatangan');
+            $table->bigInteger('id_panitia')->unsigned();
+            $table->string('nama');
+            $table->string('instansi');
+            $table->string('jabatan');
+            $table->string('nik');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('biodata_penandatangan');
+    }
+}
